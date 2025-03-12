@@ -115,7 +115,7 @@
                                                         <span class="badge badge-danger">Habis</span>
                                                     @elseif ($product->stock > 0 & $product->stock < $product->std_stock)
                                                         <span class="badge badge-warning">Kurang</span>
-                                                    @elseif ($product->stock > $product->std_stock)
+                                                    @elseif ($product->stock >= $product->std_stock)
                                                         <span class="badge badge-success">Banyak</span>
                                                     @else
                                                     @endif
@@ -135,7 +135,7 @@
                                                     <div class="d-flex">
                                                         @if ( auth()->user()->roles == "admin" )
                                                             <a href='{{ route('product.edit', $product->id) }}'
-                                                                class="btn btn-sm btn-info btn-icon">
+                                                                class="btn btn-sm btn-primary btn-icon">
                                                                 <i class="fas fa-edit"></i>
                                                                 Edit
                                                             </a>
